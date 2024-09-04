@@ -9,6 +9,41 @@ class Sidebar {
     this.initToggleButton();
   }
 
+  static initAuthLinks() {
+    const registerButton = document.querySelector('.sidebar-register');
+    if (registerButton) {
+      registerButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const modalRegister = App.getModal('register');
+        if (modalRegister) {
+          modalRegister.open();
+        }
+      });
+    }
+
+    const loginButton = document.querySelector('.sidebar-login');
+    if (loginButton) {
+      loginButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const modalLogin = App.getModal('login');
+        if (modalLogin) {
+          modalLogin.open();
+        }
+      });
+    }
+
+    const logoutButton = document.querySelector('.sidebar-logout');
+    if (logoutButton) {
+      logoutButton.addEventListener('click', async (event) => {
+        event.preventDefault();
+        const response = await User.logout();
+        if (response.success) {
+          App.setState('init');
+        }
+      });
+    }
+  }
+
   static initToggleButton() {
     const toggleButton = document.querySelector('.sidebar-toggle');
 
@@ -27,8 +62,5 @@ class Sidebar {
         }
       });
     }
-  }
-
-  static initAuthLinks() {
   }
 }
