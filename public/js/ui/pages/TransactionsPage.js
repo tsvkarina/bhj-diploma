@@ -3,7 +3,6 @@
  * страницей отображения доходов и
  * расходов конкретного счёта
  * */
-
 class TransactionsPage {
   
   constructor(element) {
@@ -128,11 +127,12 @@ class TransactionsPage {
     `;
   }
 
-  renderTransactions(data) {
-    const content = this.element.querySelector(".content");
-    content.innerHTML = '';
-    data.forEach(item => {
-      content.insertAdjacentHTML("beforeend", this.getTransactionHTML(item));
-    });
-  }
+renderTransactions(data) {
+  const content = this.element.querySelector(".content");
+
+  const transactionsHTML = data.reduce((html, item) => {
+    return html + this.getTransactionHTML(item);
+  }, '');
+
+  content.innerHTML = transactionsHTML;
 }
