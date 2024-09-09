@@ -23,16 +23,10 @@ class AsyncForm {
 
   getData() {
     const formData = new FormData(this.element);
-    const data = {};
-    
-    formData.forEach((value, key) => {
-      data[key] = value;
-    });
-    
-    return data;
+    return Object.fromEntries(formData.entries());
   }
 
-  onSubmit(options) {
+  onSubmit(data) {
   }
 
   submit() {
@@ -40,6 +34,3 @@ class AsyncForm {
     this.onSubmit(data);
   }
 }
-
-const form = document.getElementById('myform');
-const asyncForm = new MyForm(form);
