@@ -15,11 +15,7 @@ const createRequest = (options = {}) => {
   xhr.responseType = 'json';
 
   xhr.onload = () => {
-    if (xhr.status === 200) {
-      options.callback(null, xhr.response);
-    } else {
-      options.callback(xhr.response, null);
-    }
+    options.callback(null, xhr.response);
   };
 
   xhr.onerror = () => {
