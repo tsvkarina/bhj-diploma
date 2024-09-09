@@ -34,12 +34,11 @@ class Sidebar {
 
     const logoutButton = document.querySelector('.sidebar-logout');
     if (logoutButton) {
-      logoutButton.addEventListener('click', async (event) => {
+      logoutButton.addEventListener('click', (event) => {
         event.preventDefault();
-        const response = await User.logout();
-        if (response.success) {
+        User.logout(() => {
           App.setState('init');
-        }
+        });
       });
     }
   }
@@ -50,16 +49,9 @@ class Sidebar {
     if (toggleButton) {
       toggleButton.addEventListener('click', (event) => {
         event.preventDefault();
-
         const body = document.querySelector('body');
-
-        if (body.classList.contains('sidebar-open')) {
-          body.classList.remove('sidebar-open');
-          body.classList.add('sidebar-collapse');
-        } else {
-          body.classList.remove('sidebar-collapse');
-          body.classList.add('sidebar-open');
-        }
+        body.classList.toggle('sidebar-open');
+        body.classList.toggle('sidebar-collapse');
       });
     }
   }
