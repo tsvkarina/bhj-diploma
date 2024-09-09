@@ -12,9 +12,9 @@ class RegisterForm extends AsyncForm {
 
         App.setState('user-logged');
 
-        const modal = this.element.closest('.modal');
-        if (modal) {
-          Modal.close(modal);
+        const modalRegister = App.getModal('register');
+        if (modalRegister) {
+          modalRegister.close();
         }
       } else {
         console.error(response.error || 'Ошибка регистрации');
