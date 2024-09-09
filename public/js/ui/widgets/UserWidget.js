@@ -24,5 +24,3 @@ class UserWidget {
     }
   }
 }
-
-export default UserWidget;
