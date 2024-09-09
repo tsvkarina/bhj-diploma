@@ -11,10 +11,10 @@ class LoginForm extends AsyncForm {
         this.element.reset();
 
         App.setState('user-logged');
-
-        const modal = this.element.closest('.modal');
-        if (modal) {
-          Modal.close(modal);
+        
+   const modalLogin = App.getModal('login');
+        if (modalLogin) {
+          modalLogin.close();
         }
       } else {
         console.error(response.error || 'Ошибка авторизации');
