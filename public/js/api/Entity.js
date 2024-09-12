@@ -9,8 +9,8 @@ class Entity {
     createRequest({
       url: this.URL,
       method: 'GET',
-      data: data,
-      callback: callback
+      data,
+      callback
     });
   }
 
@@ -18,8 +18,8 @@ class Entity {
     createRequest({
       url: this.URL,
       method: 'PUT',
-      data: data,
-      callback: callback
+      data,
+      callback
     });
   }
 
@@ -27,8 +27,8 @@ class Entity {
     createRequest({
       url: this.URL,
       method: 'DELETE',
-      data: data,
-      callback: callback
+      data,
+      callback
     });
   }
 }
