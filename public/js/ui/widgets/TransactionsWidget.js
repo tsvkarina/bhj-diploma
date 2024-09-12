@@ -5,7 +5,10 @@
  * */
 
 class TransactionsWidget {
-  constructor(element) {
+constructor(element) {
+    if (!element || !(element instanceof Element)) {
+      throw new Error("Invalid element provided");
+    }
     this.element = element;
     this.registerEvents();
   }
