@@ -22,11 +22,15 @@ class CreateTransactionForm extends AsyncForm {
     });
   }
 
-  onSubmit(data) {
+onSubmit(data) {
     Transaction.create(data, (err, response) => {
       if (response && response.success) {
         this.element.reset();
-        App.getModal(this.element.closest('.modal')).close();
+        
+        const modalId = this.element.closest('.modal').dataset.modalId;
+
+        App.getModal(modalId).close();
+
         App.update();
       }
     });
