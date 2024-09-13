@@ -27,11 +27,11 @@ class AccountsWidget {
     });
   }
 
-  update() {
+ update() {
     if (User.current()) {
-      Account.list((error, response) => {
-        if (error) {
-          console.error("Failed to fetch accounts:", error);
+      Account.list({}, (response) => {
+        if (response.error) {
+          console.error("Failed to fetch accounts:", response.error);
         } else {
           this.clear();
           response.data.forEach(account => this.renderItem(account));
