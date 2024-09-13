@@ -22,5 +22,3 @@ class LoginForm extends AsyncForm {
     });
   }
 }
-
-export default LoginForm;
