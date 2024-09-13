@@ -16,7 +16,7 @@ class AccountsWidget {
   registerEvents() {
     const createAccountButton = this.element.querySelector('.create-account');
     createAccountButton.addEventListener('click', () => {
-      App.getModal('newAccount').open();
+      App.getModal('createAccount').open();
     });
 
     this.element.addEventListener('click', (event) => {
