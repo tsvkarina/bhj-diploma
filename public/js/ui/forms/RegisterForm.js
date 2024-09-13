@@ -22,5 +22,3 @@ class RegisterForm extends AsyncForm {
     });
   }
 }
-
-export default RegisterForm;
