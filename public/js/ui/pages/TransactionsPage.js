@@ -136,3 +136,4 @@ renderTransactions(data) {
 
   content.innerHTML = transactionsHTML;
 }
+}
